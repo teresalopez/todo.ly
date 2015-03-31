@@ -5,7 +5,7 @@ var frisby = require('frisby');
 frisby.globalSetup({
 	request:{ 
 			headers: {
-				'Authorization' : 'Basic dGVyZXNhLmxvcGV6LmVAZ21haWwuY29tOkN1ZW50YTEyMyo=' 
+				'Authorization' : 'Basic dGVyZXNhLmxvcGV6LmVAZ21haWwuY29tOmNvbnRyb2wxMjM=' 
 			},
 	} 
 });

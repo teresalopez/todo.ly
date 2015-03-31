@@ -17,8 +17,8 @@ frisby.globalSetup({
 var project = {
 	"Content": ""
 };
-
-frisby.create('Given  Create a Project with too short name')
+ 
+frisby.create('Given  a user authenticated try to create a project without name')
 	.post('https://todo.ly/api/projects.json', project, {json: true})
 	.expectStatus(200)
 	.expectJSON('', {
@@ -35,7 +35,7 @@ var item = {
 	"Content": ""
 };
 
-frisby.create('Given  Create a item without name')
+frisby.create('Given  a user authenticated try to create a item without name')
 	.post('https://todo.ly/api/items.json', item, {json: true})
 	.expectStatus(200)
 	.expectJSON('', {
@@ -51,7 +51,8 @@ var user = {
 	"FullName": "Super test",
 	"Password": ""
 };
-frisby.create('Given Create a user with a password too short')
+
+frisby.create('Given a user authenticated try to create a user without password')
 	.post('https://todo.ly/api/user.json', user, {json: true})
 	.expectStatus(200)
 	.expectJSON('', {
@@ -70,7 +71,9 @@ var userDuplicated = {
 	"FullName": "teresa lopez",
 	"Password": "control123"
 };
-frisby.create('Given Create an account with an email already registered')
+
+
+frisby.create('Given a user authenticated try to create a user with password already registered')
 	.post('https://todo.ly/api/user.json', userDuplicated, {json: true})
 	.expectStatus(200)
 	.expectJSON('', {
@@ -89,7 +92,8 @@ var userInvalid = {
 	"FullName": "",
 	"Password": "control123"
 };
-frisby.create('Given Create an account with an full name invalid or missing')
+
+frisby.create('Given a user authenticated try to create a user without full name')
 	.post('https://todo.ly/api/user.json', userInvalid, {json: true})
 	.expectStatus(200)
 	.expectJSON('', {
